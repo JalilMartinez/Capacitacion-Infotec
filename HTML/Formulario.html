@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Formulario Jalil Martinez</title>
+    </head>
+    <body>
+        <h1>Formulario</h1>
+        <form >
+            <p>Ingrese nombre : <input type="text" id="nombre"></p>
+            <p>Ingrese su edad : <input type="number" id="edad"></p>
+            <p>Ingrese su telefono de contacto : <input type="number" id="numero"></p>
+            <p>Ingrese comentario : </p>
+            <textarea name="comentarios" cols="80" rows="100">escribe algo :D</textarea>
+            <input type="button" value="Enviar" onclick="mostrar()">
+        </form>
+
+        <h2 id="contacto">Contacto</h2>
+        <p>Jalil Martinez</p>
+        <p>No.Tel. 4500160160</p>
+        <p>Correo. sdnjabnd@gmail.com</p>
+
+        <a href="/HTML/LigasyAnclas.html">Regresar</a>
+
+        <script>
+            function mostrar() {
+                let num = document.getElementById('edad').value;
+                if (num < 18) {
+                    alert('No puedes enviar esto porque eres menor de edad')
+                } else {
+                    alert('Formulario enviado')
+                }
+            }
+        </script>
+    </body>
+</html>
