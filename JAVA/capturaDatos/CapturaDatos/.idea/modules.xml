@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/CapturaDatos.iml" filepath="$PROJECT_DIR$/CapturaDatos.iml" />
+      <module fileurl="file://$PROJECT_DIR$/OperadoresAritmeticos/OperadoresAritmeticos.iml" filepath="$PROJECT_DIR$/OperadoresAritmeticos/OperadoresAritmeticos.iml" />
     </modules>
   </component>
 </project>
