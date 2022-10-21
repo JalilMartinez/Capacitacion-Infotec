@@ -2,12 +2,16 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner lectura = new Scanner(System.in);
-        System.out.println("Ingrese su numero de telefono: ");
+        System.out.println("Ingrese su numero de Telefono : ");
         String numero = lectura.next();
-        System.out.println("Ingrese su nombre:");
+        System.out.println("Ingrese su nombre : ");
         String nombre = lectura.next();
 
-        System.out.println("Hola "+nombre+"su numero de telefono es"+numero);
+        System.out.println("Hola "+nombre+" su numero de telefono es "+numero );
+
+
+
+
 
     }
 }
