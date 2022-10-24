@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="Formulario" content="Jalil Martinez">
+    <title>Formulario</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <img src="/HTML/PaginaColdplay/Multimedia/18r0cgadx3481.webp" alt="Coldplay Logo">
+            <a href="index.html">Inicio</a>
+            <a href="/HTML/PaginaColdplay/index.html#contenido">Contenido</a>
+            <a href="/HTML/PaginaColdplay/index.html#integrantes">Integrantes</a>
+            <a href="/HTML/PaginaColdplay/index.html#videos"></a>
+            <a href="formulario.html">Contacto</a>  
+        </nav>
+        <h1>Formulario Fans</h1>
+    </header>
+    <div id="formulario">
+        <fieldset>
+            <legend>Ingresa los datos : </legend>
+            <form>
+                <p>Nombre : <input type="text" name="nombre" size="30"> </p> 
+                <p>Edad : <input type="number" name="edad" ></p>
+                <p>Telefono : <input type="number" name="numero"></p>
+                <p>
+                    De que pais eres ? 
+                    <select name="Pais">
+                        <option value="1">México</option>
+                        <option value="2">Colombia</option>
+                        <option value="3">Peru</option>
+                        <option value="4">Argentina</option>
+                        <option value="5" selected>España</option>
+                        <option value="6">Venezuela</option>
+                        <option value="7">Guatemala</option>
+                    </select>
+                </p>
+
+                <p>
+                   Aceptas los terminos de privacidad?
+                   <input type="radio" name="r" id="r1"> Si
+                   <input type="radio" name="r" id="r2"> No 
+                </p>
+                
+                <input type="submit" value="Enviar Formulario">
+            </form>
+        </fieldset>
+    </div>
+
+
+
+    <footer>
+        <p>Pagina creada por Fans</p>
+        <p>Sin fines de lucro</p>
+        <p>Jalil Martinez</p>
+    </footer>
+
+</body>
+</html>
