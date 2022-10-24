@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Prueba" content="Jalil Martinez">
+    <title>Jalil Martinez</title>
+</head>
+<body>
+    <form action="registradatos.php" method="post">
+        <fieldset>
+            <legend>Datos Personales</legend>
+            Apellido y nombre : 
+            <input type="text" name="nombre" size="30" value="Aqui su nombre"><br>
+
+        </fieldset>
+        <fieldset>
+            <legend>Marca una casilla</legend>
+            <input type="checkbox" name="java" id="">Opcion 1 <br>
+            <input type="checkbox" name="phyton" id="" checked> opcion2 <br>
+        </fieldset>
+        <fieldset>
+            <legend>Escoge un pais</legend>
+            <select name="pais">
+                <option value="1">México</option>
+                <option value="2">Paris</option>
+                <option value="3">Francia</option>
+                <option value="4" selected>Portugal</option>
+                <option value="5">Venezuela</option>
+            </select>
+        </fieldset>
+        <fieldset>
+            <legend>Escoge un pais</legend>
+            <input type="hidden" value="10:20" name="hora">
+        </fieldset>
+    </form>
+</body>
+</html>

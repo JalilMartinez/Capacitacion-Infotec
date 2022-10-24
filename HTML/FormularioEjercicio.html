@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <meta name="PruebaFormulario" content="Jalil Mazatl">
+    <title>Jalil Martinez Formulario</title>
+</head>
+<body>
+    <h1>Tarea 5.1 Jalil Martinez</h1>
+    <form action="registrardatos.php">
+        <fieldset>
+            <legend>Formulario Empresa</legend>
+            Apellido y Nombre : <br>
+            <input type="text" name="nombre" id="nombre" size="30"><br>
+            ¿Es mayor de edad?<br>
+            <input type="radio" name="radio" id="r1"> Si <br>
+            <input type="radio" name="radio" id="r2" checked> No <br>
+    
+            Telefono : <br>
+            <input type="text" name="Telefono" id="Telefono" value="+52"><br>
+            <textarea name="comentarios" id="comentarios" cols="30" rows="20">Ingrese aqui sus comentarios</textarea><br>
+    
+            <input type="submit" value="enviar">
+        </fieldset>
+
+
+        <br><br>
+
+        <fieldset>
+            <legend>Tabindex</legend>
+            <form>
+                <input type="text" name="t1" size="3" tabindex="1">
+                <input type="text" name="t2" size="3" tabindex="4">
+                <input type="text" name="t3" size="3" tabindex="7"><br>
+                <input type="text" name="t4" size="3" tabindex="2">
+                <input type="text" name="t5" size="3" tabindex="5">
+                <input type="text" name="t6" size="3" tabindex="8"><br>
+                <input type="text" name="t7" size="3" tabindex="3">
+                <input type="text" name="t8" size="3" tabindex="6">
+                <input type="text" name="t9" size="3" tabindex="9">
+         
+
+            </form>
+        </fieldset>
+
+        <fieldset>
+            <legend>Select</legend>
+            <select name="Nombre">
+                <option value="1">Jalil</option>
+                <option value="2" selected>Marco</option>
+                <option value="3">Francisco</option>
+                <option value="4">Javier</option>
+                <option value="5">Jordan</option>
+            </select>
+        </fieldset>
+
+    </form>
+</body>
+</html>

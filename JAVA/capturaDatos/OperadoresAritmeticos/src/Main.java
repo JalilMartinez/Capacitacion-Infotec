@@ -13,9 +13,6 @@ public class Main {
         divicion = b/a;
         modulo = b%a;
 
-
-
-
         System.out.println(" El resultado de "+a+" + "+b+" = " +suma);
         System.out.println(" El resultado de "+a+" - "+b+" = " +resta);
         System.out.println(" El resultado de "+a+" * "+b+" = " +multiplicacion);
@@ -26,11 +23,8 @@ public class Main {
         resta --;
         multiplicacion += suma;
 
-
         System.out.println(suma);
         System.out.println(resta);
         System.out.println(multiplicacion);
-
-
     }
 }
