@@ -1,63 +1,76 @@
 <!DOCTYPE html>
-<html lang="es">
+<html >
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="Formulario" content="Jalil Martinez">
-    <title>Formulario</title>
+    <meta name="Fans Coldplay" content="Formulario">
+    <title>Document</title>
+
+    <style>
+        header{
+            background-color: rgba(21, 5, 39, 0.368);
+        }
+        footer{
+            color: rgb(59, 30, 207);
+            background-color: rgb(225, 235, 192);
+        }
+        .blue{
+            color: blue;
+        }
+        
+    </style>
 </head>
 <body>
     <header>
         <nav>
-            <img src="/HTML/PaginaColdplay/Multimedia/18r0cgadx3481.webp" alt="Coldplay Logo">
+            <img src="/HTML/PaginaColdplay/multimedia/logo.webp" alt="Logo Coldplay">
             <a href="index.html">Inicio</a>
-            <a href="/HTML/PaginaColdplay/index.html#contenido">Contenido</a>
             <a href="/HTML/PaginaColdplay/index.html#integrantes">Integrantes</a>
-            <a href="/HTML/PaginaColdplay/index.html#videos"></a>
-            <a href="formulario.html">Contacto</a>  
+            <a href="/HTML/PaginaColdplay/index.html#videos">Videos</a>
+            <a href="formulario.html">Contacto</a>
+
         </nav>
-        <h1>Formulario Fans</h1>
+        <h1>Fans Coldplay</h1>
     </header>
-    <div id="formulario">
+
+    <div id="Formulario">
         <fieldset>
-            <legend>Ingresa los datos : </legend>
-            <form>
-                <p>Nombre : <input type="text" name="nombre" size="30"> </p> 
-                <p>Edad : <input type="number" name="edad" ></p>
-                <p>Telefono : <input type="number" name="numero"></p>
-                <p>
-                    De que pais eres ? 
-                    <select name="Pais">
-                        <option value="1">México</option>
-                        <option value="2">Colombia</option>
-                        <option value="3">Peru</option>
-                        <option value="4">Argentina</option>
-                        <option value="5" selected>España</option>
-                        <option value="6">Venezuela</option>
-                        <option value="7">Guatemala</option>
-                    </select>
-                </p>
-                <p>Comentarios: 
-                    <textarea name="comentarios" id="comentarios" cols="30" rows="10">Aqui tus comentarios :D</textarea>
-                </p>
-                <p>
-                   Aceptas los terminos de privacidad?
-                   <input type="radio" name="r" id="r1"> Si
-                   <input type="radio" name="r" id="r2" checked> No 
-                </p>
-                
-                <input type="submit" value="Enviar Formulario">
-            </form>
+            <legend>Ingresa los datos requeridos : </legend>
+            <p> Nombre : <input type="text"></p>
+            <p> Edad : <input type="number"></p>
+            <p> Email : <input type="text"></p>
+            <p> De que pais eres ? 
+                <select>
+                    <option value="1">Colombia</option>
+                    <option value="2">Argentina</option>
+                    <option value="3">España</option>
+                    <option value="4" selected>Mexico</option>
+                    <option value="5">Venezuela</option>
+                    <option value="6">Guatemala</option>
+                    <option value="7">Peru </option>
+                </select>
+            </p>
+            <p>Agrega aqui tus comentarios : </p>
+            <textarea name="comentarios"  cols="30" rows="15">Se respetuoso :D</textarea>
+            <p>Aceptas los terminos de condicion ? 
+                <input type="radio" name="r"> Si 
+                <input type="radio"name="r" checked> No
+            </p>
+            <input type="submit" value="Enviar Datos">
         </fieldset>
-    </div>
+
+        
+    </div><!-- Formulario -->
+
 
 
 
     <footer>
-        <p>Pagina creada por Fans</p>
-        <p>Sin fines de lucro</p>
-        <p>Jalil Martinez</p>
+        Pagina creada por Fans de Coldplay <br>
+        Sin fines de lucro <br>
+        Jalil Martinez 
     </footer>
+
 
 </body>
 </html>
