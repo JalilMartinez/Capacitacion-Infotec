@@ -24,7 +24,7 @@ public class Diseñador extends Empleado{
 
     public ArrayList<String> compruebaActividades(int edad){
         this.compruebaEdad(edad);
-        Collections.sort(actividadesDiarias);
+        Collections.sort(actividadesDiarias);//se ordenan las actividades
        
         
         return actividadesDiarias;
@@ -33,10 +33,10 @@ public class Diseñador extends Empleado{
 
 
     public void compruebaEdad(int edad){
-        if(edad<=25){
+        if(edad<=25){// si es menor o igual a 25 tiene una actividad
            this.actividadesDiarias.add("Revisión de diseñador SR");
 
-        }else{
+        }else{// si es mayor a 25 tiene una actividad
             this.actividadesDiarias.add("Apoyo a diseñador JR");
         }
     }

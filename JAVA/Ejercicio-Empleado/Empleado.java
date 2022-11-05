@@ -36,13 +36,18 @@ public class Empleado {
     public static void main(String[] args) {
         
         Diseñador dis = new Diseñador("JAL", "MARTINEZ", 22);
+        Diseñador dis2 = new Diseñador("Victor", "MARTINEZ", 35);
+        
         programador pro = new programador("Mildred", "maz", 20);
 
 
-        System.out.println("Nombre : "+dis.getNombre()+" Diseñador");
+        System.out.println("\n Diseñador \n Nombre : "+dis.getNombre()+"\n Actividades:");
         System.out.println( dis.getActividadesDiarias());
 
-        System.out.println("Nombre : "+pro.getNombre()+" Programador");
+        System.out.println("\n Diseñador \n Nombre : "+dis2.getNombre()+"\n Actividades:");
+        System.out.println( dis2.getActividadesDiarias());
+
+        System.out.println("\n Programador \n Nombre : "+pro.getNombre()+" \n Actividades");
         System.out.println(pro.getActividadesDiarias());
 
 

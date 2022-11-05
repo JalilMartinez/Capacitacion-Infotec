@@ -17,38 +17,42 @@ public class programador extends Empleado{
         this.nombre=nombre;
     }
     public ArrayList<String> compruebaActividades(int edad){
-        for (int i = 0; i < actividadesDiarias.size(); i++) {
-          
-            String a=actividadesDiarias.get(i);//se separan actividades
-            
+        ArrayList<String> copiaActividades = new ArrayList<String>();//creamos copia de actividades diarias
+        copiaActividades=actividadesDiarias;
 
-            char[] aCaracteres = a.toCharArray();
+        
+    
+        for (int i = 0; i < copiaActividades.size(); i++) {
+            String a=copiaActividades.get(i);//se separan actividades
+            
+            char[] aCaracteres = a.toCharArray();//se convierte la actividad en char
             
 
             for (int j = 0; j < aCaracteres.length; j++) {
                 if(j==0){
-                    aCaracteres[j] = ' ';
+                    aCaracteres[j] = ' ';//eliminamos primer caracter de la actividad
                 }
                 if(j==(aCaracteres.length-1)){
-                    aCaracteres[j] = ' ';
+                    aCaracteres[j] = ' ';//eliminamos ultimo caracter de la actividad
                 }
             }
             
             String b = "";
             for (int j = 0; j < aCaracteres.length; j++) {
-                b+=aCaracteres[j];
+                b+=aCaracteres[j];//formamos de nuevo la actividad
             }
 
-            actividadesDiarias.set(i, b);
+            copiaActividades.set(i, b);//reemplazamos la actividad con caracteres eliminados en la lista de actividades
 
         }
         
         
-        Collections.sort(actividadesDiarias);
-        return actividadesDiarias;
+        Collections.sort(copiaActividades);//ordenamos la lista de actividades
+        return copiaActividades;
 
     }
 
+    
 
     
 
