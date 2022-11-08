@@ -7,31 +7,28 @@
     <title>Document</title>
 </head>
 <body>
-    <script>    
+    <script>
         let valor;
         let suma=0;
-        do{
-            valor = parseInt(prompt('Ingrese el valor a sumar : '))
-            if(valor!= 9999){
-                
-                suma += valor;
+        do {
+            valor=parseInt(prompt('Ingrese un valor a sumar (9999 para deter) : '));
+            if(valor != 9999){
+                suma = suma + valor;
             }
-        }while(valor!=9999);
+        } while (valor != 9999);
 
-        document.write('El valor acumulado total es : ' + suma)
+        document.write('El valor acumulado es : '+ suma);
         document.write('<br>')
 
         if(suma>0){
-            document.write('El valor acumulado es mayor a cero');
-
+            document.write('El valor acumulado es mayor a 0');
+        }else if(suma==0){
+            document.write('El valor acumulado es cero');
         }else{
-            if(suma==0){
-                document.write('El valor acumulado es cero');
-            }else{
-                document.write('El valor acumunlado es menor a cero');
-            }
+            document.write('El valor acumulado es menor a cero');
         }
 
     </script>
+
 </body>
 </html>
