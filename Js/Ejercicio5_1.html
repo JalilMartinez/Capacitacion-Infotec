@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let dia, mes, año;
+
+        dia=parseInt(prompt("Ingrese el día :"));
+        mes=parseInt(prompt("Ingrese el mes :"));
+        año=parseInt(prompt("Ingrese el año :"));
+    
+
+        document.write(fecha(dia, mes, año));
+    
+        function fecha(dia,mes,año) {
+            let m;
+            switch (mes) {
+                case 1:
+                    m="Enero";
+                    break;
+                case 2:
+                    m="Febrero";
+                    break;
+                case 3:
+                    m="Marzo";
+                    break;
+                case 4:
+                    m="Abril";
+                    break;
+                case 5:
+                    m="Mayo";
+                    break;
+                case 6:
+                    m="Junio";
+                    break;
+                case 7:
+                    m="Julio";
+                    break;
+                case 8:
+                    m="Agosto";
+                    break;
+                case 9:
+                    m="Septiembre";
+                    break;
+                case 10:
+                    m="Octubre";
+                    break;
+                case 11:
+                    m="Noviembre";
+                    break;
+                case 12:
+                    m="Diciembre";
+                    break;
+            
+                default:
+                    m="No diste un mes valido";
+                    break;
+            }
+
+            return "Hoy es "+dia+ " de " +m + " del " + año;
+        }
+    </script>
+</body>
+</html>
