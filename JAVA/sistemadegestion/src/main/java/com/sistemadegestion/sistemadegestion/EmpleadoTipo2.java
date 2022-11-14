@@ -4,8 +4,8 @@ public class EmpleadoTipo2 extends Empleados{
     
     
     public EmpleadoTipo2(String nombre, int edad, int antiguedad){
-        super(nombre, edad, antiguedad);
-        this.setTipo(2);
+        super(nombre, edad, antiguedad,tipo=2);
+        
         
         actividades.add("Vender Productos");
         actividades.add("Descansar");

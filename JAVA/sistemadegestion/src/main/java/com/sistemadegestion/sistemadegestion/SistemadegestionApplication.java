@@ -7,38 +7,33 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 import java.util.ArrayList;
-
+import java.util.List;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.google.gson.Gson;
 
 @SpringBootApplication
-public abstract class SistemadegestionApplication {
+public abstract class SistemadegestionApplication extends Utileria {
 
-    private int tipo, tipoP;
+    private int tipoP;
     int contador=0;
-    String nombre;
+    
     ArrayList<String> tipos = new ArrayList<String>();
 
 
-	public void setTipo(int a){
-        this.tipo=a;
-    }
+	
 
 	public int setTipoProducto(){
         TipoProducto tipos = new TipoProducto();
         tipos=this.obtenerTipos();
         
-        
         tipos=this.realizaComparaciones(tipos);
-
         // tipos.setProducto1("hola");
         this.actualizaTipos(tipos);
         return this.tipoP;
         
     }
-
     public TipoProducto obtenerTipos(){
         Gson gson = new Gson();
 		String jsonfinal = "";
@@ -92,6 +87,7 @@ public abstract class SistemadegestionApplication {
     }
     public TipoProducto realizaComparaciones(TipoProducto a){
 
+        
         int tipos[] = a.generaArray();
         int contador = 0;
         int contador1 = 0;
@@ -107,6 +103,7 @@ public abstract class SistemadegestionApplication {
                         for (int j = 0; j < b.length  ; j++) {
                             if (b[j] != tipos[j]) {
                                 tipos[i]=b[j];
+                                this.tipoP=b[j];
                                 contador ++;
                                 continue actualiza;   
                             }
@@ -141,18 +138,48 @@ public abstract class SistemadegestionApplication {
         return a;
     }
 
+	
 	public static void main(String[] args) {
-		Empleados empleado1 = new EmpleadoTipo1("JALIL", 15, 10);
+		
+        List<String> listaproductos = new ArrayList<String>();
+        List<String> listaempleados = new ArrayList<String>();
+
+        Empleados empleado1 = new EmpleadoTipo1("JALIL", 15, 10);       
         Empleados empleado2 = new EmpleadoTipo2("Maza", 45, 15);
+        Empleados empleado3 = new EmpleadoTipo3("Maza", 45, 15);
+
 		Productos jabon = new Productos("Jabon");
-		Productos jabon1 = new Productos("Jabon");
-		Productos jabon2 = new Productos("Jabon");
+		Productos papel = new Productos("Papel");
+		Productos papas = new Productos("papas");
+		Productos jarrito = new Productos("jarrito");
+
+        System.out.println(jabon.getTipo());
+        System.out.println(papel.getTipo());
+        System.out.println(papas.getTipo());
+        System.out.println(jarrito.getTipo());
+
+        listaproductos=empleado1.obtenerBaseProductos();
+
+        listaempleados=empleado1.obtenerBaseEmpleados();
+        
+        jabon.hacerComprobaciones(listaproductos);
+
+        jabon.obtenerHora();
+
+        empleado1.emliminaEmpleados3(listaempleados);
 
 
+        String cadenaMin = "hola panfilo :d";
         
+        String cadenaMay = empleado1.cadenaMayusculas(cadenaMin);
+        System.out.println(cadenaMay);
         
-            
+        String cadenaMay1 = "hola panfilo :d";
         
+        String cadenaMin1 = empleado1.cadenaMinusculas(cadenaMay1);
+        System.out.println(cadenaMin1);
+        
+
        
 	}
 

@@ -1,6 +1,6 @@
 package com.sistemadegestion.sistemadegestion;
 
-import java.sql.Array;
+
 
 public class TipoProducto {
     private String producto1; 
@@ -45,7 +45,7 @@ public class TipoProducto {
                     Integer.parseInt(this.producto18),
                     Integer.parseInt(this.producto19),
                     Integer.parseInt(this.producto20),
-        };
+                };
         return a;
     }
 

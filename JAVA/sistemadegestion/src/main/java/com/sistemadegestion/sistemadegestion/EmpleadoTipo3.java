@@ -4,8 +4,8 @@ public class EmpleadoTipo3 extends Empleados{
     
     
     public EmpleadoTipo3(String nombre, int edad, int antiguedad){
-        super(nombre, edad, antiguedad);
-        this.setTipo(3);
+        super(nombre, edad, antiguedad,tipo=3);
+        
             
         actividades.add("No puede realizar actividades");        
 
