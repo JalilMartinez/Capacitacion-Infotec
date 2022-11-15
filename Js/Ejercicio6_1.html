@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="lista"></div>
+    <script>
+        function iniciar() {
+            generarLista('lista', 'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Agosto', 'Septiembre', 'Octubre');
+        }
+        function generarLista() {
+            let s='<ol>';
+            for (let i = 1; i < arguments.length; i++) {
+                s=s+'<li>'+arguments[i]+'</li>';
+                
+            }
+            s=s+'</ol>';
+            let elemento=document.getElementById(arguments[0]);
+            elemento.innerHTML=s;
+        }
+        iniciar();
+    </script>
+</body>
+</html>
