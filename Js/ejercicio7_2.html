@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function calcular(a,b,funcion) {
+            let resultado=funcion(a,b);
+            return resultado;
+        }
+
+        let suma1 = calcular(7,8,function (v1,v2) {
+            return v1+ v2;
+        });
+
+        document.write(`La suma es igual a : ${suma1}<br>`);
+
+        let resta1 = calcular(7,8,function (v1,v2) {
+            return v1- v2;
+        });
+
+        document.write(`La resta es igual a : ${resta1}<br>`);
+
+
+
+
+
+    </script>
+</body>
+</html>
