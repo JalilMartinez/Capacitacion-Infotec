@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dos clases</title>
+</head>
+<body>
+    <script>
+        function NumeroQuinela(nombre) {
+            this.nombre = nombre;
+            this.carganumero=function(){
+                this.numero=parseInt(prompt('Que numero de quiniela quiere '+this.nombre+' ?'));
+
+            };
+            this.verificarSiGano = function(num){
+                if(this.numero==num){
+                    return true;
+                }else{
+                    return false;
+                }
+            };
+
+        }
+
+
+        function Bolillero() {
+            this.numero=-1;
+            this.sortear=function(){
+                this.numero=parseInt(Math.random()*10)+1;
+            }
+        }
+
+        let NumeroQuinela1;
+        NumeroQuinela1=new NumeroQuinela("Juan");
+        NumeroQuinela1.carganumero();
+
+        let NumeroQuinela2;
+        NumeroQuinela2 = new NumeroQuinela("Ana");
+        NumeroQuinela2.carganumero();
+
+        let bolillero;
+        bolillero = new Bolillero();
+        bolillero.sortear();
+        document.write('Numero sorteado : '+ bolillero.numero+' <br>');
+        document.write(NumeroQuinela1.nombre+' eligio '+NumeroQuinela1.numero+'<br>');
+        document.write(NumeroQuinela2.nombre+' eligio '+NumeroQuinela2.numero+'<br>');
+
+        if(NumeroQuinela1.verificarSiGano(bolillero.numero)){
+            document.write(NumeroQuinela1.nombre+' ha ganado ')
+        }
+        if(NumeroQuinela2.verificarSiGano(bolillero.numero)){
+            document.write(NumeroQuinela2.nombre+' ha ganado ')
+        }
+
+    </script>
+</body>
+</html>
