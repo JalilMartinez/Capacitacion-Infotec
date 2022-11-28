@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String por teclado</title>
+</head>
+<body>
+    <script>
+        let cadena = prompt('Ingrese una cadena : ');
+        document.write('La cadena ingresada es : '+cadena);
+        document.write('<br>');
+
+        document.write('La cantidad de caracteres son : '+cadena.length);
+        document.write('<br>');
+
+        document.write('El primer carácter es : '+cadena.charAt(0));
+        document.write('<br>');
+
+        document.write('Los primeros tres caracteres son : ' +cadena.substring(0,3));
+        document.write('<br>');
+
+        if (cadena.indexOf('hola'!=-1)) {
+            document.write('Se ingresó la subcadena hola');
+        }else{
+            document.write('No ingresó la subcadena hola');
+        }
+        document.write('<br>');
+        document.write('La cadena convertida en mayusculas es : '+cadena.toLocaleUpperCase());
+        document.write('<br>');
+        document.write('La cadena convertida en minusculas es : '+cadena.toLocaleLowerCase());
+        document.write('<br>');
+    </script>
+</body>
+</html>
