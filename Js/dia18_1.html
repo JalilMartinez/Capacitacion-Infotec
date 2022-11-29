@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <script>
+        var jugador1={
+            nombre: 'ana',
+            puntos:0,
+            imprimir:function(){
+                document.write('Nombre : '+this.nombre+'<br>');
+                document.write('Puntos : '+this.puntos+'<br>');
+            },
+            aumentarpuntos: function (cant) {
+              
+                this.puntos+=cant;
+            },
+            verificarsigano: function () {
+                if(this.puntos>1000){
+                    document.write('Gano <br>');
+                }
+            }
+        }
+        jugador1.imprimir();
+        jugador1.aumentarpuntos(500);
+        jugador1.verificarsigano();
+        
+        jugador1.aumentarpuntos(501);
+        jugador1.verificarsigano();
+
+        jugador1.imprimir();
+
+    </script>
+</body>
+</html>
