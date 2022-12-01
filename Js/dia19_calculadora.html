@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+</head>
+<body>
+    <script>
+        class Calculadora{
+            constructor(x1,x2){
+                this.x1=x1;
+                this.x2=x2;
+                this.resultado=null;
+            }
+            sumar(){
+                this.resultado = this.x1 +this.x2;
+                document.write(`La suma de ${this.x1} y ${this.x2} es `);
+                this.imprimir();
+            }
+            restar(){
+                this.resultado = this.x1 -this.x2;
+                document.write(`La resta de ${this.x1} y ${this.x2} es `);
+                this.imprimir();
+            }
+            multiplicar(){
+                this.resultado = this.x1 *this.x2;
+                document.write(`La multiplicacion de ${this.x1} y ${this.x2} es `);
+                this.imprimir();
+            }
+            dividir(){
+                this.resultado = this.x1 /this.x2;
+                document.write(`La divicion de ${this.x1} y ${this.x2} es `);
+                this.imprimir();
+            }
+            imprimir(){
+                document.write(this.resultado+'<br>');
+            }
+        }
+        class CalculadoraCientifica extends Calculadora{
+            cuadrado(){
+                this.resultado=this.x1*this.x1;
+                this.imprimir();
+            }
+            raizCuadrada(){
+                this.resultado=Math.sqrt(this.x1);
+                document.write(`La raiz cuadrada de ${this.x1} es `);
+                this.imprimir();
+            }
+        }
+
+        const op1 = new Calculadora(100,20);
+        op1.sumar();
+        op1.restar();
+        op1.dividir();
+        op1.multiplicar();
+        
+        const op2 = new CalculadoraCientifica(6,2);
+        op2.sumar();
+        op2.restar();
+        op2.dividir();
+        op2.multiplicar();
+        op2.cuadrado();
+        op2.raizCuadrada();
+    </script>
+</body>
+</html>
