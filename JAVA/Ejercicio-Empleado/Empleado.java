@@ -50,6 +50,7 @@ public class Empleado {
         System.out.println("\n Programador \n Nombre : "+pro.getNombre()+" \n Actividades");
         System.out.println(pro.getActividadesDiarias());
 
+        int contador$=23;
 
     }
 }
