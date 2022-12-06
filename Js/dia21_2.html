@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let sueldos=[];
+        let monto;
+        do {
+            monto=parseInt(prompt('Ingrese el sueldo (0 para finalizar)'));
+            if (monto != 0) {
+                sueldos.push(monto);
+            }
+        } while (monto != 0);
+        let s=0;
+        for (let f = 0; f < sueldos.length; f++) {
+            s+=sueldos[f];
+        }
+        document.write('El total en sueldos inggresado es :' +s);
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dias</title>
+</head>
+<body>
+    <script>
+        let dias=['lunes','martes','miercoles','jueves','viernes','sabado','domingo'];
+        let diaSemana = prompt('Introduzca un dia de la semana : ' );
+        let contador=0;
+        do {
+            contador++;            
+        } while (dias[contador-1]!=diaSemana.toLocaleLowerCase());
+        
+        
+        if ( contador < 6) {
+            document.write('Dia ' + diaSemana + ' es el dia numero '+ contador + ' y es laborable');
+        }else{
+            document.write('Dia ' + diaSemana + ' es el dia numero '+ contador + ' y no es laborable');
+        }
+        
+</script>
+</body>
+</html>
