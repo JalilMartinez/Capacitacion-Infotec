@@ -29,7 +29,7 @@ class AdministradorArticulos{
             }else{
                 
                     contenido += '<tr> <td>'+a.codigo+'</td> <td>'+a.descripcion+'</td> <td>'+a.precio+'</td>';   
-                    contenido += '<td> <button type="button" id="'+ i +'" onclick="borrarValores(this.id)">Borrar?</button> </td>';  
+                    contenido += '<td> <button type="button" class="botonElimina" id="'+ i +'" onclick="borrarValores(this.id)">Borrar?</button> </td>';  
                     contenido += '</td> <td> <button type="button" id="'+ i +'" onclick="seleccionaValores(this.id)">SELECCIONAR</button> </td>  </tr>';
                 }
         }
@@ -38,6 +38,7 @@ class AdministradorArticulos{
     }
     contenido+='</table>';
     tabla.innerHTML=contenido;
+    this.actualizaTienda(base);
    }
 
    seleccionaValores(valores){
@@ -47,6 +48,25 @@ class AdministradorArticulos{
     cod.value=valores.codigo;
     des.value=valores.descripcion;
     pre.value=valores.precio;
+   }
+   actualizaTienda(base){
+    let tabla = document.getElementById("productos");
+    let contenido = '';
+    for (let i = 1; i < base.length; i++) {
+        let a = base[i];
+        if(base[i]!=undefined){
+                contenido += '<div class="producto"> <a href="producto.html">';
+                contenido += '<img class="producto__imagen" src="imagenes/1.jpg" alt="imagen '+ a.descripcion+'">';   
+                contenido += '<div class="producto__informacion">';  
+                contenido += '<p class="producto__nombre">'+a.descripcion+'</p> <p class="producto__precio"> $'+a.precio+'</p></div></a></div></div><!--.PRODUCTO--> ';
+    
+        }
+        
+       
+    }
+    contenido+='<div class="grafico grafico--camisas"></div><div class="grafico grafico--node"></div>';
+    tabla.innerHTML=contenido;
+
    }
 
 }
@@ -100,6 +120,8 @@ const designarValores = () =>{//funciona cuando se oprime boton agregar
 }
 const modificarValores = () =>{//funciona cuando se oprime boton modificar
 
+
+    
     //obtener valores de input
     obtener.obtenerCodigo();
     obtener.obtenerDescripcion();
