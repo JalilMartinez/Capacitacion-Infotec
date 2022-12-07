@@ -16,16 +16,140 @@ class AdministradorArticulos{
     this.precio=inputValue;
    }
 
+   añadeElementosTabla(base){
+    let tabla = document.getElementById("tabla");
+    let contenido = '<table border = \'1\' > ';
+    for (let i = 0; i < base.length; i++) {
+        let a = base[i];
+        if(base[i]!=undefined){
+            if(i==0){
+                contenido += '<tr> <td>'+a.codigo+'</td> <td>'+a.descripcion+'</td> <td>'+a.precio+'</td>';   
+                contenido += '<td> Borrrar </td>';  
+                contenido += '<td>Seleccionar</td>  </tr>';
+            }else{
+                
+                    contenido += '<tr> <td>'+a.codigo+'</td> <td>'+a.descripcion+'</td> <td>'+a.precio+'</td>';   
+                    contenido += '<td> <button type="button" id="'+ i +'" onclick="borrarValores(this.id)">Borrar?</button> </td>';  
+                    contenido += '</td> <td> <button type="button" id="'+ i +'" onclick="seleccionaValores(this.id)">SELECCIONAR</button> </td>  </tr>';
+                }
+        }
+        
+       
+    }
+    contenido+='</table>';
+    tabla.innerHTML=contenido;
+   }
 
+   seleccionaValores(valores){
+    let cod = document.getElementById('codigo');
+    let des = document.getElementById('descripcion');
+    let pre = document.getElementById('precio');
+    cod.value=valores.codigo;
+    des.value=valores.descripcion;
+    pre.value=valores.precio;
+   }
 
 }
 
-const obtenerValor = () =>{
-    let obtener = new AdministradorArticulos();
+// AQUI INICIA EL MAIN
+
+let obtener = new AdministradorArticulos();
+let base=[
+    {
+        codigo : 'Codigo',
+        descripcion : 'Descripcion',
+        precio : 'Precio',
+
+    }];
+
+const designarValores = () =>{//funciona cuando se oprime boton agregar
+
+    //obtener valores de input
     obtener.obtenerCodigo();
     obtener.obtenerDescripcion();
     obtener.obtenerPrecio();
-    document.write(obtener.codigo+'<br>');
-    document.write(obtener.descripcion+'<br>');
-    document.write(obtener.precio);
+    
+    //se hace un array con los valores obtenidos
+    let datos={
+        codigo: obtener.codigo,
+        descripcion : obtener.descripcion,
+        precio : obtener.precio
+    };
+    
+    if(datos.codigo==0){
+        alert('Debe de ingresar un codigo de articulo distinto a cero')
+    }else{
+        let pase=false;
+        for (let i = 0; i < base.length; i++) {
+            if(base[i]!=undefined){
+                if(datos.codigo == base[i].codigo){
+                    pase = true;
+                }
+            }
+        }
+        if (pase==false) {
+            base.push(datos);//se agregan valores obtenidos a un array de objetos
+        
+            obtener.añadeElementosTabla(base);//se agregan valores a la tabla
+        }else{
+            alert('Ya existe un articulo con dicho codigo')
+        }
+    }
+    
+    
+}
+const modificarValores = () =>{//funciona cuando se oprime boton modificar
+
+    //obtener valores de input
+    obtener.obtenerCodigo();
+    obtener.obtenerDescripcion();
+    obtener.obtenerPrecio();
+    
+    //se hace un array con los valores obtenidos
+    let datos={
+        codigo: obtener.codigo,
+        descripcion : obtener.descripcion,
+        precio : obtener.precio
+    };
+    
+    let pase=true;
+    for (let i = 0; i < base.length; i++) {
+        if(base[i]!=undefined){
+            if(datos.codigo == base[i].codigo){
+                base[i].descripcion=datos.descripcion;
+                base[i].precio=datos.precio;
+                obtener.añadeElementosTabla(base);//se actualiza la tabla 
+                pase=false;
+            }else if(datos.descripcion == base[i].descripcion){
+                base[i].codigo=datos.codigo;
+                base[i].precio=datos.precio;
+                obtener.añadeElementosTabla(base);//se actualiza la tabla 
+                pase=false;
+            }
+        }
+    }
+    if(pase==true){
+        alert('No hay elemento que modificar');
+    }
+    
+    
+    
+    
+}
+
+
+
+function borrarValores(id) {//funciona cuando se oprime boton borrar
+    let op = confirm("Presiona aceptar para confirmar eliminacion");
+    if(op==true){
+        delete base[id];//se eliminan los datos del array de objetos
+    
+        obtener.añadeElementosTabla(base);//se actualiza la tabla
+    }
+    
+}
+
+function seleccionaValores(id) {//funciona cuando se oprime boton seleccionar
+    let a = base[id];//se obtienen los datos de la posicion de acuerdo al boton precionado
+    obtener.seleccionaValores(a);//se envian los datos a los input
 }
