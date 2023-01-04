@@ -1,5 +1,8 @@
 package com.example.demo.controller;
-/*package com.example.controller;
+
+
+import java.net.URI;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -10,25 +13,30 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.example.dto.PasatiemposData;
-import com.example.entity.Pasatiempos;
-import com.example.service.PasatiemposService;
-
-
+import com.example.demo.dto.PasatiemposData;
+import com.example.demo.entity.Pasatiempos;
+import com.example.demo.service.PasatiemposService;
+import com.example.demo.entity.Persona;
+import com.example.demo.service.PersonaService;
 
 @RestController
 public class PasatiempoController {
 
 	@Autowired
 	public PasatiemposService pasatiemposService;
+	@Autowired
+	public PersonaService personaService;
+	
 	
 	//guardar
-	@PutMapping("/guardarPasatiempo")
-	public ResponseEntity <Integer> guardarPasatiempos(@RequestParam("nombre")String nombre,@RequestParam("pasatiempo")String pasatiempo){
+	@PutMapping("/guardarPasatiempos")
+	public ResponseEntity <Integer> guardarPasatiempos(/*@RequestBody Pasatiempos pasatiempos*/ @RequestParam("id_persona") Integer id_persona, @RequestParam("nombre")String nombre,@RequestParam("pasatiempos")String pasatiempos){
 		Integer id = 0;
 		try {
-			id = this.pasatiemposService.guardarPasatiempos(nombre, pasatiempo);
+			Persona persona = this.personaService.obtenerPorId(id_persona);
+			id = this.pasatiemposService.guardarPasatiempos(nombre, pasatiempos, persona);
 			System.out.print(id);
 		}catch(Exception e){
 			System.out.println("Error");
@@ -36,7 +44,7 @@ public class PasatiempoController {
 		if(id==0) {
 			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
-		return new ResponseEntity<>(id,HttpStatus.OK);
+		return new ResponseEntity<>(id,HttpStatus.OK);	
 	}
 	
 	@PutMapping("/guardarDTOPasatiempo")
@@ -61,5 +69,34 @@ public class PasatiempoController {
 		
 		return new ResponseEntity<>(data,HttpStatus.OK);
 	}
+	
+	//actualiza
+	@PutMapping("/actualizaPasatiempo/{id}")
+    public ResponseEntity<Integer> actualizaPasatiempo(@PathVariable("id") Integer id, @RequestParam("nombre")String nombre,@RequestParam("pasatiempos")String pasatiempos) {
+
+		try {
+			Pasatiempos pasatiempo = this.pasatiemposService.obtenerPorId(id);
+			pasatiempo.setNombre(nombre);
+			pasatiempo.setPasatiempo(pasatiempos);
+			pasatiemposService.actualizaPasatiempos(pasatiempo);
+			System.out.print(id);
+		}catch(Exception e){
+			System.out.println("Error");
+		}
+		if(id==0) {
+			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+		return new ResponseEntity<>(id,HttpStatus.OK);
+		   
+    }
+	
+	
+	//borrar
+	@GetMapping("/borrarPasatiempos/{id}")
+	public ResponseEntity<Void> borrarPasatiempos(@PathVariable("id")Integer id){
+        Pasatiempos pasatiempo = this.pasatiemposService.obtenerPorId(id);
+        this.pasatiemposService.eliminarPasatiempos(pasatiempo.getId());
+        return new ResponseEntity<Void>(HttpStatus.ACCEPTED);
+    }
 		
-}*/
+}

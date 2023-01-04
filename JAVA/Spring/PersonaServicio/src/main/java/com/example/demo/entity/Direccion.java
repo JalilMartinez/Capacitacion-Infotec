@@ -9,6 +9,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -27,11 +29,19 @@ public class Direccion {
 	private String ciudad;
 	private int codigo_postal;
 	private String estado;
-	/*
-	@OneToMany(mappedBy="direccion", cascade = CascadeType.ALL)
-	private Set<Persona> persona = new HashSet<>();*/
 	
 	
+	@ManyToOne
+	@JoinColumn(name="id_persona")
+	private Persona persona; 
+	
+	
+	public Persona getPersona() {
+		return persona;
+	}
+	public void setPersona(Persona persona) {
+		this.persona = persona;
+	}
 	public Integer getId() {
 		return id;
 	}

@@ -1,7 +1,6 @@
 package com.example.demo.entity;
 
 import java.util.HashSet;
-
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -29,15 +28,21 @@ public class Persona {
 	private String apellidos;
 	
 	
-	/*
-	@OneToMany(mappedBy="persona", cascade = CascadeType.ALL)
-	private Set<Pasatiempos> pasatiempo = new HashSet<>();
 	
-	@ManyToOne(fetch = FetchType.LAZY, optional =false)
+	@OneToMany(mappedBy="persona")
+	private Set<Pasatiempos> pasatiempos;
+	
+	/*@ManyToOne(fetch = FetchType.LAZY, optional =false)
 	@JoinColumn(name="direccion_id") 
 	private Direccion direccion_id;*/
 
-	
+	/*
+	public Set<Pasatiempos> getPasatiempos() {
+		return pasatiempos;
+	}
+	public void setPasatiempos(Set<Pasatiempos> pasatiempos) {
+		this.pasatiempos = pasatiempos;
+	}*/
 	public Integer getId() {
 		return id;
 	}

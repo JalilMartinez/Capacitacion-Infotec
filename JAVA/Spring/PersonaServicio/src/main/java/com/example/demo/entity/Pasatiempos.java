@@ -1,5 +1,4 @@
 package com.example.demo.entity;
-/*package com.example.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -11,6 +10,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
+
 @Entity
 @Table(name="pasatiempos", schema="public", uniqueConstraints= {@UniqueConstraint (columnNames = {"nombre"})})
 public class Pasatiempos {
@@ -19,12 +21,19 @@ public class Pasatiempos {
 	private Integer id;
 	
 	private String nombre;
-	private String pasatiempo;
+	private String pasatiempos;
 	
-	@ManyToOne(fetch = FetchType.LAZY, optional =false)
+	@ManyToOne
 	@JoinColumn(name="id_persona")
-	private Persona id_persona; 
+	private Persona persona; 
 	
+	
+	public Persona getPersona() {
+		return persona;
+	}
+	public void setPersona(Persona persona) {
+		this.persona = persona;
+	}
 	public Integer getId() {
 		return id;
 	}
@@ -38,16 +47,9 @@ public class Pasatiempos {
 		this.nombre = nombre;
 	}
 	public String getPasatiempo() {
-		return pasatiempo;
+		return pasatiempos;
 	}
 	public void setPasatiempo(String pasatiempo) {
-		this.pasatiempo = pasatiempo;
-	}
-	public Persona getId_persona() {
-		return id_persona;
-	}
-	public void setId_persona(Persona id_persona) {
-		this.id_persona = id_persona;
+		this.pasatiempos = pasatiempo;
 	}
 }
-*/
