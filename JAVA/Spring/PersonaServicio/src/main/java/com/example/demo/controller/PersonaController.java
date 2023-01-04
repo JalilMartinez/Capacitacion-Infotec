@@ -3,17 +3,19 @@ package com.example.demo.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.dto.DataDTO;
 import com.example.demo.entity.Persona;
 import com.example.demo.service.PersonaService;
-
-import org.springframework.web.bind.annotation.RequestParam;
 
 @RestController
 public class PersonaController {
@@ -58,9 +60,41 @@ public class PersonaController {
 		return new ResponseEntity<>(data,HttpStatus.OK);
 	}
 	
+	//actualiza
+	@PutMapping("/actualizaPersona/{id}")
+    public ResponseEntity<Integer> actualizaPersona(@PathVariable("id") Integer id, @RequestParam("nombre")String nombre,@RequestParam("apellidos")String apellidos) {
+
+		try {
+			Persona persona = this.personaService.obtenerPorId(id);
+			persona.setNombre(nombre);
+			persona.setApellidos(apellidos);
+			personaService.actualizaPersona(persona);
+			System.out.print(id);
+		}catch(Exception e){
+			System.out.println("Error");
+		}
+		if(id==0) {
+			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+		return new ResponseEntity<>(id,HttpStatus.OK);
+		   
+    }
 	
 	
+	//borrar
+	@GetMapping("/borrarPersona/{id}")
+	public ResponseEntity<Void> borrarPersona(@PathVariable("id")Integer id){
+        Persona persona = this.personaService.obtenerPorId(id);
+        this.personaService.eliminarPersona(persona.getId());
+        return new ResponseEntity<Void>(HttpStatus.ACCEPTED);
+    }
+		 /*
+	//Crear PDF
+	@GetMapping("/create")
+	public String crear(Model model) {
+		
+	}*/
 	
 	
-	
+
 }

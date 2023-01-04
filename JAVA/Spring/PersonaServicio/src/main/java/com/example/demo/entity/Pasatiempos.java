@@ -1,4 +1,5 @@
-package com.example.entity;
+package com.example.demo.entity;
+/*package com.example.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -49,3 +50,4 @@ public class Pasatiempos {
 		this.id_persona = id_persona;
 	}
 }
+*/

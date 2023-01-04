@@ -1,6 +1,7 @@
-package com.example.dto;
+package com.example.demo.dto;
 
-import com.example.entity.Direccion;
+
+import com.example.demo.entity.Direccion;
 
 
 public class DireccionData {

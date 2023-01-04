@@ -1,6 +1,6 @@
-package com.example.dto;
+package com.example.demo.dto;
 
-import com.example.entity.Persona;
+import com.example.demo.entity.Persona;
 
 public class DataDTO {
 	public DataDTO() {
@@ -9,7 +9,7 @@ public class DataDTO {
 	public DataDTO(Persona persona) {
 		this.id=persona.getId();
 		this.nombre=persona.getNombre();
-		this.apellidos=persona.getApellido();
+		this.apellidos=persona.getApellidos();
 	}
 	public String getNombre() {
 		return nombre;

@@ -1,4 +1,5 @@
-package com.example.entity;
+package com.example.demo.entity;
+
 
 import java.util.HashSet;
 import java.util.Set;
@@ -26,9 +27,9 @@ public class Direccion {
 	private String ciudad;
 	private int codigo_postal;
 	private String estado;
-	
+	/*
 	@OneToMany(mappedBy="direccion", cascade = CascadeType.ALL)
-	private Set<Persona> persona = new HashSet<>();
+	private Set<Persona> persona = new HashSet<>();*/
 	
 	
 	public Integer getId() {

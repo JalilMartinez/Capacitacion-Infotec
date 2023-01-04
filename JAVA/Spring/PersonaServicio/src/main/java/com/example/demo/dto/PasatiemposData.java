@@ -1,4 +1,5 @@
-package com.example.dto;
+package com.example.demo.dto;
+/*package com.example.dto;
 
 import com.example.entity.Pasatiempos;
 
@@ -38,4 +39,4 @@ public class PasatiemposData {
 	public void setPasatiempo(String pasatiempo) {
 		this.pasatiempo = pasatiempo;
 	}
-}
+}*/

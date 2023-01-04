@@ -1,4 +1,4 @@
-package com.example.entity;
+package com.example.demo.entity;
 
 import java.util.HashSet;
 
@@ -26,16 +26,16 @@ public class Persona {
 	private Integer id;
 	
 	private String nombre;
-	private String apellido;
+	private String apellidos;
 	
 	
-	
+	/*
 	@OneToMany(mappedBy="persona", cascade = CascadeType.ALL)
 	private Set<Pasatiempos> pasatiempo = new HashSet<>();
 	
 	@ManyToOne(fetch = FetchType.LAZY, optional =false)
 	@JoinColumn(name="direccion_id") 
-	private Direccion direccion_id;
+	private Direccion direccion_id;*/
 
 	
 	public Integer getId() {
@@ -50,18 +50,18 @@ public class Persona {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	public String getApellido() {
-		return apellido;
+	public String getApellidos() {
+		return apellidos;
 	}
-	public void setApellido(String apellido) {
-		this.apellido = apellido;
-	}
+	public void setApellidos(String apellido) {
+		this.apellidos = apellido;
+	}/*
 	public Direccion getDireccion_id() {
 		return direccion_id;
 	}
 	public void setDireccion_id(Direccion direccion_id) {
 		this.direccion_id = direccion_id;
-	}
+	}*/
 	
 	
 	

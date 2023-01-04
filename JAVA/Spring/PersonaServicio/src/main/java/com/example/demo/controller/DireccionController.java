@@ -1,4 +1,5 @@
-package com.example.controller;
+package com.example.demo.controller;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -12,9 +13,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.dto.DireccionData;
-import com.example.entity.Direccion;
-import com.example.service.DireccionService;
+import com.example.demo.dto.DireccionData;
+import com.example.demo.entity.Direccion;
+import com.example.demo.entity.Persona;
+import com.example.demo.service.DireccionService;
 
 @RestController
 public class DireccionController {
@@ -60,12 +62,38 @@ public class DireccionController {
 		
 		return new ResponseEntity<>(data,HttpStatus.OK);
 	}
+	//actualiza
+	@PutMapping("/actualizaDireccion/{id}")
+    public ResponseEntity<Integer> actualizaDireccion(@PathVariable("id") Integer id, @RequestBody DireccionData data) {
+
+		try {
+			Direccion direccion = this.direccionService.obtenerPorId(id);
+			direccion.setCalle(data.getCalle());
+			direccion.setCiudad(data.getCiudad());
+			direccion.setCodigo_postal(data.getCodigo_postal());
+			direccion.setColonia(data.getColonia());
+			direccion.setEstado(data.getEstado());
+			direccion.setNumero_exterior(data.getNumero_exterior());
+			direccion.setNumero_interior(data.getNumero_interior());
+			direccionService.actualizaDireccion(direccion);
+			System.out.print(id);
+		}catch(Exception e){
+			System.out.println("Error");
+		}
+		if(id==0) {
+			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+		return new ResponseEntity<>(id,HttpStatus.OK);
+		   
+    }
+	
+	
 	//borrar
-	 @DeleteMapping("/delete/{id}")
-	 @ResponseBody
-	 public ResponseEntity<Void> deleteItem(@PathVariable("id")Integer id){
+	@GetMapping("/borrarDireccion/{id}")
+	public ResponseEntity<Void> borrarDireccion(@PathVariable("id")Integer id){
         Direccion direccion = this.direccionService.obtenerPorId(id);
         this.direccionService.eliminarDireccion(direccion.getId());
         return new ResponseEntity<Void>(HttpStatus.ACCEPTED);
     }
+	
 }

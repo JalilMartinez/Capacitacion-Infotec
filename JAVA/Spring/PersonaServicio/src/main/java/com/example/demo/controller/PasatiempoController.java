@@ -1,9 +1,9 @@
-package com.example.controller;
+package com.example.demo.controller;
+/*package com.example.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -11,22 +11,24 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.entity.Persona;
-import com.example.dto.DataDTO;
-import com.example.service.PersonaService;
+import com.example.dto.PasatiemposData;
+import com.example.entity.Pasatiempos;
+import com.example.service.PasatiemposService;
+
+
 
 @RestController
-public class PersonaController {
-	
+public class PasatiempoController {
+
 	@Autowired
-	public PersonaService personaService;
+	public PasatiemposService pasatiemposService;
 	
 	//guardar
-	@PutMapping("/guardarPersona")
-	public ResponseEntity <Integer> guardarPersona(@RequestParam("nombre")String nombre,@RequestParam("apellidos")String apellidos){
+	@PutMapping("/guardarPasatiempo")
+	public ResponseEntity <Integer> guardarPasatiempos(@RequestParam("nombre")String nombre,@RequestParam("pasatiempo")String pasatiempo){
 		Integer id = 0;
 		try {
-			id = this.personaService.guardarPersona(nombre, apellidos);
+			id = this.pasatiemposService.guardarPasatiempos(nombre, pasatiempo);
 			System.out.print(id);
 		}catch(Exception e){
 			System.out.println("Error");
@@ -37,11 +39,11 @@ public class PersonaController {
 		return new ResponseEntity<>(id,HttpStatus.OK);
 	}
 	
-	@PutMapping("/guardarDTOPersona")
-	public ResponseEntity <Integer> guardarPersona(@RequestBody DataDTO data){
+	@PutMapping("/guardarDTOPasatiempo")
+	public ResponseEntity <Integer> guardarPersona(@RequestBody PasatiemposData data){
 		Integer id = 0;
 		try {
-			id=this.personaService.guardarPersona(data.getNombre(), data.getApellidos());
+			id = this.pasatiemposService.guardarPasatiempos(data.getNombre(), data.getPasatiempo());
 		}catch(Exception e){
 			System.out.println("Error");
 		}
@@ -52,20 +54,12 @@ public class PersonaController {
 	}
 	
 	//buscar
-	@GetMapping("/obtenerPersona/{id}")
-	public ResponseEntity<DataDTO> obtenerPersona(@PathVariable("id")Integer id){
-		Persona persona = this.personaService.obtenerPorId(id);
-		DataDTO data=new DataDTO(persona);
+	@GetMapping("/obtenerPasatiempo/{id}")
+	public ResponseEntity<PasatiemposData> obtenerPersona(@PathVariable("id")Integer id){
+		Pasatiempos pasatiempo = this.pasatiemposService.obtenerPorId(id);
+		PasatiemposData data=new PasatiemposData(pasatiempo);
 		
 		return new ResponseEntity<>(data,HttpStatus.OK);
 	}
-	
-	//Crear PDF
-	/*@GetMapping("/create")
-	public String crear(Model model) {
 		
-	}*/
-	
-	
-
-}
+}*/

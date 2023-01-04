@@ -1,4 +1,5 @@
-package com.example.service;
+package com.example.demo.service;
+/*package com.example.service;
 
 import org.springframework.stereotype.Service;
 
@@ -23,3 +24,4 @@ public class PasatiemposService {
 		return pasatiempos.getId();
 	}
 }
+*/

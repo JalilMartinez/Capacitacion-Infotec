@@ -1,9 +1,11 @@
-package com.example.service;
+package com.example.demo.service;
+
 
 import org.springframework.stereotype.Service;
 
-import com.example.entity.Direccion;
-import com.example.repository.DireccionRepository;
+import com.example.demo.entity.Direccion;
+import com.example.demo.entity.Persona;
+import com.example.demo.repository.DireccionRepository;
 
 @Service
 public class DireccionService {
@@ -28,6 +30,10 @@ public class DireccionService {
 		direccion.setNumero_interior(numero_interior);
 		direccion=direccionRepository.save(direccion);
 		return direccion.getId();
+		
+	}
+	public void actualizaDireccion(Direccion direccion) {
+		direccionRepository.save(direccion);
 		
 	}
 	public Integer eliminarDireccion(Integer id) {
