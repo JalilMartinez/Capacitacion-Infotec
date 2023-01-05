@@ -1,9 +1,12 @@
 package com.example.demo.controller;
 
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -13,11 +16,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.dto.DireccionData;
 import com.example.demo.entity.Direccion;
+import com.example.demo.entity.Pasatiempos;
 import com.example.demo.entity.Persona;
 import com.example.demo.service.DireccionService;
 import com.example.demo.service.PersonaService;
 
-@RestController
+@Controller
 public class DireccionController {
 	@Autowired
 	public DireccionService direccionService;
@@ -63,6 +67,14 @@ public class DireccionController {
 		
 		return new ResponseEntity<>(data,HttpStatus.OK);
 	}
+	
+	@GetMapping("/listaDireccion")
+    public ResponseEntity<List<Direccion>> listaDireccion(){
+        List<Direccion> direccion = direccionService.listaDireccion();
+        return new ResponseEntity<List<Direccion>>(direccion, HttpStatus.OK);
+    }
+	
+	
 	//actualiza
 	@PutMapping("/actualizaDireccion/{id}")
     public ResponseEntity<Integer> actualizaDireccion(@PathVariable("id") Integer id, @RequestBody DireccionData data) {

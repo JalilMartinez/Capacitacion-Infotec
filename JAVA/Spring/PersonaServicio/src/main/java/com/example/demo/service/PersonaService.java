@@ -1,5 +1,7 @@
 package com.example.demo.service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.example.demo.entity.Persona;
@@ -29,8 +31,12 @@ public class PersonaService {
 		personaRepository.save(persona);
 		
 	}
+	public List<Persona> listaPersona(){
+		return  personaRepository.findAll();
+	}
 	public Integer eliminarPersona(Integer id) {
 		personaRepository.deleteById(id);
 		return id;
 	}
+	
 }

@@ -1,6 +1,8 @@
 package com.example.demo.service;
 
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.example.demo.entity.Direccion;
@@ -49,6 +51,9 @@ public class DireccionService {
 	public void actualizaDireccion(Direccion direccion) {
 		direccionRepository.save(direccion);
 		
+	}
+	public List<Direccion> listaDireccion(){
+		return  direccionRepository.findAll();
 	}
 	public Integer eliminarDireccion(Integer id) {
 		

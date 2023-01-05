@@ -2,11 +2,13 @@ package com.example.demo.controller;
 
 
 import java.net.URI;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -21,13 +23,14 @@ import com.example.demo.service.PasatiemposService;
 import com.example.demo.entity.Persona;
 import com.example.demo.service.PersonaService;
 
-@RestController
+@Controller
 public class PasatiempoController {
 
 	@Autowired
 	public PasatiemposService pasatiemposService;
 	@Autowired
 	public PersonaService personaService;
+	
 	
 	
 	//guardar
@@ -70,6 +73,13 @@ public class PasatiempoController {
 		return new ResponseEntity<>(data,HttpStatus.OK);
 	}
 	
+	@GetMapping("/listaPasatiempo")
+    public ResponseEntity<List<Pasatiempos>> listaPersona(){
+        List<Pasatiempos> pasatiempo = pasatiemposService.listaPasatiempos();
+        return new ResponseEntity<List<Pasatiempos>>(pasatiempo, HttpStatus.OK);
+    }
+	
+	
 	//actualiza
 	@PutMapping("/actualizaPasatiempo/{id}")
     public ResponseEntity<Integer> actualizaPasatiempo(@PathVariable("id") Integer id, @RequestParam("nombre")String nombre,@RequestParam("pasatiempos")String pasatiempos) {
@@ -90,7 +100,7 @@ public class PasatiempoController {
 		   
     }
 	
-	
+
 	//borrar
 	@GetMapping("/borrarPasatiempos/{id}")
 	public ResponseEntity<Void> borrarPasatiempos(@PathVariable("id")Integer id){
