@@ -13,7 +13,6 @@ export class AppComponent {
       .subscribe(result=>{
         this.articulos=result
         console.log(this.articulos);
-        
         })
     
 
