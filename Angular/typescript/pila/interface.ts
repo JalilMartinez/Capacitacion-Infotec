@@ -26,9 +26,9 @@ class PilaGenerica<T>{// class PilaEnteros
 //     }
 // }
 
-let pila1 = new PilaEnteros();
-pila1.insertar(50);
-pila1.insertar(30);
-pila1.insertar(8);
-console.log(pila1.extraer());
+// // let pila1 = new PilaEnteros();
+// pila1.insertar(50);
+// pila1.insertar(30);
+// pila1.insertar(8);
+// console.log(pila1.extraer());
 
