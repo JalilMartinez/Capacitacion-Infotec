@@ -14,8 +14,6 @@ export class AppComponent {
         this.articulos=result
         console.log(this.articulos);
         })
-    
 
-    
   }
 }
