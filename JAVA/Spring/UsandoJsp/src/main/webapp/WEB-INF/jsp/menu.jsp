@@ -7,7 +7,6 @@
 		${password}
 		
 		<%
-		
         if(request.getParameter("usuario").equals("jalil")){%>
         	Bienvenido
         <%}%>
